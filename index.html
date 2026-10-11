@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Potential Savings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="card" role="dialog" aria-labelledby="card-title">
+    <button class="close-btn" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    <header class="brand">
+      <img
+        class="brand-mark"
+        src="Ultraviolette_logo.jpg"
+        alt="Ultraviolette logo"
+        onerror="this.style.display='none'"
+      />
+      <div class="brand-word">
+        <span class="brand-word-1">ULTRAVIOLETTE</span>
+        <span class="brand-word-2">AUTOMOTIVE</span>
+      </div>
+    </header>
+
+    <h2 class="title" id="card-title">POTENTIAL SAVINGS</h2>
+
+    <div class="amount" id="savings-amount">INR 0</div>
+    <p class="amount-caption">
+      ESTIMATED FUEL COST SAVINGS IN NEXT <span id="years-caption">1</span> YEARS
+    </p>
+
+    <hr class="divider" />
+
+    <div class="controls">
+      <!-- Slider: Daily distance -->
+      <div class="row row--slider">
+        <label class="row-label" for="daily-distance">Daily distance travelled (kms)</label>
+        <output class="row-value" id="daily-distance-value">50</output>
+        <div class="slider" data-slider>
+          <input
+            type="range"
+            id="daily-distance"
+            min="0" max="200" step="1" value="50"
+            aria-label="Daily distance travelled in kilometres"
+          />
+          <div class="slider-track">
+            <div class="slider-fill"></div>
+            <div class="slider-thumb">
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider: Mileage -->
+      <div class="row row--slider">
+        <label class="row-label" for="mileage">Mileage of the bike (kms/ltr)</label>
+        <output class="row-value" id="mileage-value">30</output>
+        <div class="slider" data-slider>
+          <input
+            type="range"
+            id="mileage"
+            min="1" max="60" step="1" value="30"
+            aria-label="Mileage of the bike in kilometres per litre"
+          />
+          <div class="slider-track">
+            <div class="slider-fill"></div>
+            <div class="slider-thumb">
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stepper: Cost of fuel -->
+      <div class="row row--stepper">
+        <span class="row-label">Cost of fuel (&#8377;/ltr)</span>
+        <div class="stepper">
+          <button type="button" class="stepper-btn" data-step="-1" data-target="fuel-cost" aria-label="Decrease fuel cost">&minus;</button>
+          <span class="stepper-value" id="fuel-cost" data-value="110" data-min="1" data-step="1">110</span>
+          <button type="button" class="stepper-btn" data-step="1" data-target="fuel-cost" aria-label="Increase fuel cost">+</button>
+        </div>
+      </div>
+
+      <!-- Stepper: Number of years -->
+      <div class="row row--stepper">
+        <span class="row-label">Number of years</span>
+        <div class="stepper">
+          <button type="button" class="stepper-btn" data-step="-1" data-target="years" aria-label="Decrease number of years">&minus;</button>
+          <span class="stepper-value" id="years" data-value="1" data-min="1" data-step="1">1</span>
+          <button type="button" class="stepper-btn" data-step="1" data-target="years" aria-label="Increase number of years">+</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="footnote">*The mentioned values are approximate values.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
